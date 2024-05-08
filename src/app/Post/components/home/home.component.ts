@@ -1,16 +1,33 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
-import { SharedService } from 'src/app/Shared/Services/shared.service';
-import * as PostsAction from '../../actions';
-import { PostDTO } from '../../models/post.dto';
-import { PostService } from '../../services/post.service';
+import { animate, style, transition, trigger } from "@angular/animations";
+import { HttpErrorResponse } from "@angular/common/http";
+import { Component } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { SharedService } from "src/app/Shared/Services/shared.service";
+import { AppState } from "src/app/app.reducers";
+import * as PostsAction from "../../actions";
+import { PostDTO } from "../../models/post.dto";
+import { PostService } from "../../services/post.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
+  animations: [
+    trigger("cardAnimation", [
+      transition(
+        ":enter",
+        [
+          // se activa cuando la tarjeta entra en el DOM
+          style({ opacity: 0, transform: "translateY(-15px)" }),
+          animate(
+            "350ms {{delay}}ms ease-out",
+            style({ opacity: 1, transform: "translateY(0)" })
+          ),
+        ],
+        { params: { delay: 0 } }
+      ), // Parámetros por defecto
+    ]),
+  ],
 })
 export class HomeComponent {
   posts: PostDTO[];
@@ -23,11 +40,11 @@ export class HomeComponent {
     private sharedService: SharedService,
     private store: Store<AppState>
   ) {
-    this.userId = '';
+    this.userId = "";
     this.posts = new Array<PostDTO>();
     this.showButtons = false;
 
-    this.store.select('auth').subscribe((auth) => {
+    this.store.select("auth").subscribe((auth) => {
       this.showButtons = false;
 
       if (auth.credentials.user_id) {
@@ -38,7 +55,7 @@ export class HomeComponent {
       }
     });
 
-    this.store.select('posts').subscribe((posts) => {
+    this.store.select("posts").subscribe((posts) => {
       this.posts = posts.posts;
     });
   }

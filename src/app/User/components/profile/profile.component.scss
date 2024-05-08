@@ -2,6 +2,20 @@
   color: red;
 }
 
+form {
+  margin: 0 auto;
+  max-width: 480px;
+  text-align: center;
+}
+
+form section:first-child {
+  padding-top: 24px;
+}
+
+form section:last-child {
+  padding-bottom: 24px;
+}
+
 #profileFeedback {
   visibility: hidden;
   min-width: 250px;

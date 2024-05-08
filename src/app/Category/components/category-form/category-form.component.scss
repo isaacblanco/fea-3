@@ -2,6 +2,19 @@
   color: red;
 }
 
+form {
+  background-color: #fff;
+  text-align: center;
+}
+
+form section:first-child {
+  margin-top: 24px;
+}
+
+form section:last-child {
+  margin-bottom: 24px;
+}
+
 #categoryFeedback {
   visibility: hidden;
   min-width: 250px;

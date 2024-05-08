@@ -1,5 +1,15 @@
-<div *ngIf="posts">
-  <p>Num likes: {{ numLikes }}</p>
-  <p>Num dislikes: {{ numDislikes }}</p>
-  <canvas id="postChart" width="400" height="200"></canvas>
+<div style="margin: 24px auto; max-width: 640px">
+  <div *ngIf="posts">
+    <p>Num likes: {{ numLikes }}</p>
+    <p>Num dislikes: {{ numDislikes }}</p>
+    <canvas
+      baseChart
+      [datasets]="chartData.datasets"
+      [labels]="chartData.labels"
+      [options]="chartOptions"
+      [type]="chartType"
+    >
+    </canvas>
+  </div>
+  <div *ngIf="!posts">No hay post</div>
 </div>

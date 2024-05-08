@@ -1,7 +1,7 @@
 <div style="margin-left: auto; margin-right: auto">
   <p id="registerFeedback"></p>
 </div>
-<div>
+<div style="margin: 24px auto; max-width: 240px">
   <h1>Register</h1>
   <mat-card class="mat-elevation-z4">
     <form [formGroup]="registerForm" (ngSubmit)="register()">
@@ -13,13 +13,13 @@
             *ngIf="name.errors && isValidForm != null && !isValidForm"
             [ngClass]="'error'"
           >
-            <div *ngIf="name.errors.required">Name is required</div>
-            <div *ngIf="name.errors.minlength">
+            <mat-error *ngIf="name.errors.required">Name is required</mat-error>
+            <mat-error *ngIf="name.errors.minlength">
               Name must be at least 5 characters long.
-            </div>
-            <div *ngIf="name.errors.maxlength">
+            </mat-error>
+            <mat-error *ngIf="name.errors.maxlength">
               Name can be max 25 characters long.
-            </div>
+            </mat-error>
           </div>
         </mat-form-field>
       </section>
@@ -31,13 +31,15 @@
             *ngIf="surname_1.errors && isValidForm != null && !isValidForm"
             [ngClass]="'error'"
           >
-            <div *ngIf="surname_1.errors.required">Surname1 is required</div>
-            <div *ngIf="surname_1.errors.minlength">
+            <mat-error *ngIf="surname_1.errors.required"
+              >Surname1 is required</mat-error
+            >
+            <mat-error *ngIf="surname_1.errors.minlength">
               Surname1 must be at least 5 characters long.
-            </div>
-            <div *ngIf="surname_1.errors.maxlength">
+            </mat-error>
+            <mat-error *ngIf="surname_1.errors.maxlength">
               Surname1 can be max 25 characters long.
-            </div>
+            </mat-error>
           </div>
         </mat-form-field>
       </section>
@@ -49,12 +51,12 @@
             *ngIf="surname_2.errors && isValidForm != null && !isValidForm"
             [ngClass]="'error'"
           >
-            <div *ngIf="surname_2.errors.minlength">
+            <mat-error *ngIf="surname_2.errors.minlength">
               Surname2 must be at least 5 characters long.
-            </div>
-            <div *ngIf="surname_2.errors.maxlength">
+            </mat-error>
+            <mat-error *ngIf="surname_2.errors.maxlength">
               Surname2 can be max 25 characters long.
-            </div>
+            </mat-error>
           </div>
         </mat-form-field>
       </section>
@@ -66,13 +68,15 @@
             *ngIf="alias.errors && isValidForm != null && !isValidForm"
             [ngClass]="'error'"
           >
-            <div *ngIf="alias.errors.required">Alias is required</div>
-            <div *ngIf="alias.errors.minlength">
+            <mat-error *ngIf="alias.errors.required"
+              >Alias is required</mat-error
+            >
+            <mat-error *ngIf="alias.errors.minlength">
               Alias must be at least 5 characters long.
-            </div>
-            <div *ngIf="alias.errors.maxlength">
+            </mat-error>
+            <mat-error *ngIf="alias.errors.maxlength">
               Alias can be max 25 characters long.
-            </div>
+            </mat-error>
           </div>
         </mat-form-field>
       </section>
@@ -84,7 +88,9 @@
             *ngIf="birth_date.errors && isValidForm != null && !isValidForm"
             [ngClass]="'error'"
           >
-            <div *ngIf="birth_date.errors.required">Birth date is required</div>
+            <mat-error *ngIf="birth_date.errors.required"
+              >Birth date is required</mat-error
+            >
           </div>
         </mat-form-field>
       </section>
@@ -96,8 +102,12 @@
             *ngIf="email.errors && isValidForm != null && !isValidForm"
             [ngClass]="'error'"
           >
-            <div *ngIf="email.errors.required">Email is required</div>
-            <div *ngIf="email.errors.pattern">Email not a valid format.</div>
+            <mat-error *ngIf="email.errors.required"
+              >Email is required</mat-error
+            >
+            <mat-error *ngIf="email.errors.pattern"
+              >Email not a valid format.</mat-error
+            >
           </div>
         </mat-form-field>
       </section>
@@ -109,10 +119,12 @@
             *ngIf="password.errors && isValidForm != null && !isValidForm"
             [ngClass]="'error'"
           >
-            <div *ngIf="password.errors.required">Password is required</div>
-            <div *ngIf="password.errors.minlength">
+            <mat-error *ngIf="password.errors.required"
+              >Password is required</mat-error
+            >
+            <mat-error *ngIf="password.errors.minlength">
               Password must be at least 8 characters long.
-            </div>
+            </mat-error>
           </div>
         </mat-form-field>
       </section>

@@ -30,9 +30,16 @@ sudo ng add @angular/material
 
 Ejemplos: https://material.angular.io/components/form-field/overview
 
+Dejan algo bastante que desear, pero se ha aplicado el Material design a las paginas solicitadas: login, register, profile, categoriesForm y postForm
+
 ## Ejercicio 2
 
+Estilos aplicados a categoriesList y postList, se usaron variables de relleno de datos para que funcionará correctamente.
+Las cabeceras e iconos dieron cierta guerra, pero por tratar de usar el font-awesome en lugar del mat-icon.
+
 ## Ejercicio 3
+
+TODO
 
 ## Ejercicio 4
 
@@ -40,6 +47,22 @@ Footer eliminado. Incluido el Toolbar
 
 ## Ejercicio 5
 
+Las cards de la home convertidas a mat-card
+
+Animación:
+
 ## Ejercicio 6
 
+El problema de usar la versión 15 de angular es que esta obsoleta.
+Y hay que especificar versiones concretas para que los gráficos funciones.
+
 ## Ejercicio 7
+
+## Conclusiones
+
+Se tarda mucho en configurar los temas de angular y nada en hacer lo que se pide.
+P. ej. configurar el gráfico, horas, pintarlo, minutos.
+
+O mejor explicado, no se, y como no se (no tengo suficiente base, estoy a la vez en la asignatura previa) se me hace un poco cuesta arriba, bueno, le echaría más horas si no estuviera trabajando y con otras cuantas asignaturas mas (ninguna queja, me metí en estos lios yo solo y voluntaríamente).
+
+He trabajado con Ionic (con angular) en el pasado y eso me salva algo.

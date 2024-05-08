@@ -1,40 +1,60 @@
-<h2>Categories List</h2>
+<div class="container">
+  <h2>Categories List</h2>
 
-<button mat-flat-button color="primary" (click)="createCategory()">ADD</button>
+  <button mat-flat-button color="primary" (click)="createCategory()">
+    ADD
+  </button>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="categoryId">
-    <th mat-header-cell *matHeaderCellDef>ID</th>
-    <td mat-cell *matCellDef="let category">{{ category.categoryId }}</td>
-  </ng-container>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="categoryId">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let category">{{ category.categoryId }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef>Title</th>
-    <td mat-cell *matCellDef="let category">{{ category.title }}</td>
-  </ng-container>
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let category">{{ category.title }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Description</th>
-    <td mat-cell *matCellDef="let category">{{ category.description }}</td>
-  </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let category">{{ category.description }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="css_color">
-    <th mat-header-cell *matHeaderCellDef>CSS Color</th>
-    <td mat-cell *matCellDef="let category">{{ category.css_color }}</td>
-  </ng-container>
+    <ng-container matColumnDef="css_color">
+      <th mat-header-cell *matHeaderCellDef>CSS Color</th>
+      <td mat-cell *matCellDef="let category">{{ category.css_color }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let category">
-      <button mat-button (click)="updateCategory(category.categoryId)">
-        <i class="fas fa-edit"></i>
-      </button>
-      <button mat-button (click)="deleteCategory(category.categoryId)">
-        <i class="fas fa-trash"></i>
-      </button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let category">
+        <button
+          mat-button
+          color="primary"
+          (click)="updateCategory(category.categoryId)"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example edit icon"
+            fontIcon="edit"
+          ></mat-icon>
+        </button>
+        <button
+          mat-button
+          color="warn"
+          (click)="deleteCategory(category.categoryId)"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example delete icon"
+            fontIcon="delete"
+          ></mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

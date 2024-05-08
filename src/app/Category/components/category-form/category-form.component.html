@@ -1,69 +1,78 @@
 <div style="margin: 0 auto">
   <p id="categoryFeedback"></p>
 </div>
-<div>
+<div style="margin: 0 auto; max-width: 480px">
   <h1>Category form</h1>
   <form
     *ngIf="categoryForm"
     [formGroup]="categoryForm"
     (ngSubmit)="saveCategory()"
   >
-    <mat-form-field appearance="fill">
-      <mat-label for="title">Title:</mat-label>
-      <input matInput type="text" [formControl]="title" />
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="title">Title:</mat-label>
+        <input matInput type="text" [formControl]="title" />
 
-      <div *ngIf="title.errors">
-        <div
-          *ngIf="title.errors && isValidForm != null && !isValidForm"
-          [ngClass]="'error'"
-        >
-          <div *ngIf="title.errors.required">Title is required</div>
+        <div *ngIf="title.errors">
+          <div
+            *ngIf="title.errors && isValidForm != null && !isValidForm"
+            [ngClass]="'error'"
+          >
+            <mat-error *ngIf="title.errors.required"
+              >Title is required</mat-error
+            >
 
-          <div *ngIf="title.errors.maxlength">
-            Title can be max 55 characters long.
+            <mat-error *ngIf="title.errors.maxlength">
+              Title can be max 55 characters long.
+            </mat-error>
           </div>
         </div>
-      </div>
-    </mat-form-field>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="description">Description:</mat-label>
+        <input matInput type="text" [formControl]="description" />
 
-    <mat-form-field appearance="fill">
-      <mat-label for="description">Description:</mat-label>
-      <input matInput type="text" [formControl]="description" />
+        <div *ngIf="description.errors">
+          <div
+            *ngIf="description.errors && isValidForm != null && !isValidForm"
+            [ngClass]="'error'"
+          >
+            <mat-error *ngIf="description.errors.required"
+              >Description is required</mat-error
+            >
 
-      <div *ngIf="description.errors">
-        <div
-          *ngIf="description.errors && isValidForm != null && !isValidForm"
-          [ngClass]="'error'"
-        >
-          <div *ngIf="description.errors.required">Description is required</div>
-
-          <div *ngIf="description.errors.maxlength">
-            Description can be max 255 characters long.
+            <mat-error *ngIf="description.errors.maxlength">
+              Description can be max 255 characters long.
+            </mat-error>
           </div>
         </div>
-      </div>
-    </mat-form-field>
+      </mat-form-field>
+    </section>
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label for="description">Css color:</mat-label>
+        <input matInput type="text" [formControl]="css_color" />
 
-    <mat-form-field appearance="fill">
-      <mat-label for="description">Css color:</mat-label>
-      <input matInput type="text" [formControl]="css_color" />
-
-      <div *ngIf="css_color.errors">
-        <!--<div
+        <div *ngIf="css_color.errors">
+          <!--<div
           *ngIf="css_color.errors && isValidForm != null && !isValidForm"
           [ngClass]="'error'"
         >//-->
-        <mat-error *ngIf="css_color.errors.required"
-          >Css color is required</mat-error
-        >
+          <mat-error *ngIf="css_color.errors.required"
+            >Css color is required</mat-error
+          >
 
-        <mat-error *ngIf="css_color.errors.maxlength">
-          Css color can be max 7 characters long.
-        </mat-error>
-      </div>
-      <!--</div>-->
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">SAVE</button>
+          <mat-error *ngIf="css_color.errors.maxlength">
+            Css color can be max 7 characters long.
+          </mat-error>
+        </div>
+        <!--</div>-->
+      </mat-form-field>
+    </section>
+    <section>
+      <button mat-raised-button color="primary" type="submit">SAVE</button>
+    </section>
   </form>
 </div>

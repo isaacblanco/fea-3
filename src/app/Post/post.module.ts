@@ -10,8 +10,10 @@ import { PostsListComponent } from "./components/posts-list/posts-list.component
 // Material libraries
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { MatChipsModule } from "@angular/material/chips";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
@@ -20,6 +22,10 @@ import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
 
 // Graficos
+import { NgChartsModule } from "ng2-charts";
+
+// Animaciones
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -42,6 +48,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     MatToolbarModule,
     MatTableModule,
     MatSelectModule,
+    MatChipsModule,
+    MatDividerModule,
+    NgChartsModule,
+    BrowserAnimationsModule,
   ],
 })
 export class PostModule {}
