@@ -1,0 +1,32 @@
+.mat-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 968px;
+}
+
+mat-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  flex: 0 1 30%; // Cada tarjeta tomará el 30% del contenedor, permitiendo 3 por fila
+  margin: 10px;
+  min-width: 260px;
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+mat-card-header,
+mat-card-actions {
+  background-color: #f0f0f0;
+}
+
+mat-card-content {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}

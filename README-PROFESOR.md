@@ -39,7 +39,7 @@ Las cabeceras e iconos dieron cierta guerra, pero por tratar de usar el font-awe
 
 ## Ejercicio 3
 
-TODO
+TODO: no se ha hecho
 
 ## Ejercicio 4
 
@@ -48,8 +48,7 @@ Footer eliminado. Incluido el Toolbar
 ## Ejercicio 5
 
 Las cards de la home convertidas a mat-card
-
-Animación:
+Animación: realizada en la home
 
 ## Ejercicio 6
 
@@ -57,6 +56,9 @@ El problema de usar la versión 15 de angular es que esta obsoleta.
 Y hay que especificar versiones concretas para que los gráficos funciones.
 
 ## Ejercicio 7
+
+Se ha creado el componente para que acepte las cards como referencia.
+Se han dejado las viejas para mostrar el trabajo solicitado en el punto 5
 
 ## Conclusiones
 

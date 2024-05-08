@@ -1,4 +1,4 @@
-<h1>List All posts</h1>
+<h1>List All posts (no card componente)</h1>
 
 <div class="mat-card-container">
   <mat-card
@@ -38,4 +38,22 @@
       <button mat-button (click)="dislike(post.postId)">Dislike</button>
     </mat-card-actions>
   </mat-card>
+</div>
+
+<!-- Reciclado de cards -->
+<div class="container">
+  <h2>Cars usando el componente (repetidas aposta)</h2>
+
+  <div
+    *ngIf="posts && posts.length > 0; else noPostsTemplate"
+    class="mat-card-container"
+  >
+    <div *ngFor="let post of posts; let i = index" @cardAnimation>
+      <app-card [post]="post"></app-card>
+    </div>
+  </div>
+
+  <ng-template #noPostsTemplate>
+    <p>No posts available!</p>
+  </ng-template>
 </div>

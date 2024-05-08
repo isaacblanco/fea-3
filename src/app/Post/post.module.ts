@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CardComponent } from "src/app/Shared/Components/card/card.component";
 import { FormatDatePipe } from "../Shared/Pipes/format-date.pipe";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -34,6 +35,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     HomeComponent,
     FormatDatePipe,
     DashboardComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
