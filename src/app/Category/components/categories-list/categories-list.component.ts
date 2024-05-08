@@ -1,31 +1,41 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
-import * as CategoriesAction from '../../actions';
-import { CategoryDTO } from '../../models/category.dto';
+import { Component } from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
+import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/app.reducers";
+import * as CategoriesAction from "../../actions";
+import { CategoryDTO } from "../../models/category.dto";
 
 @Component({
-  selector: 'app-categories-list',
-  templateUrl: './categories-list.component.html',
-  styleUrls: ['./categories-list.component.scss'],
+  selector: "app-categories-list",
+  templateUrl: "./categories-list.component.html",
+  styleUrls: ["./categories-list.component.scss"],
 })
 export class CategoriesListComponent {
   categories: CategoryDTO[];
+  dataSource = new MatTableDataSource<CategoryDTO>([]);
+  displayedColumns: string[] = [
+    "categoryId",
+    "title",
+    "description",
+    "css_color",
+    "actions",
+  ]; // Cabeceras
 
   private userId: string;
   constructor(private router: Router, private store: Store<AppState>) {
-    this.userId = '';
+    this.userId = "";
     this.categories = new Array<CategoryDTO>();
 
-    this.store.select('auth').subscribe((auth) => {
+    this.store.select("auth").subscribe((auth) => {
       if (auth.credentials.user_id) {
         this.userId = auth.credentials.user_id;
       }
     });
 
-    this.store.select('categories').subscribe((categories) => {
+    this.store.select("categories").subscribe((categories) => {
       this.categories = categories.categories;
+      this.dataSource = new MatTableDataSource<CategoryDTO>(this.categories);
     });
 
     this.loadCategories();
@@ -40,11 +50,11 @@ export class CategoriesListComponent {
   }
 
   createCategory(): void {
-    this.router.navigateByUrl('/user/category/');
+    this.router.navigateByUrl("/user/category/");
   }
 
   updateCategory(categoryId: string): void {
-    this.router.navigateByUrl('/user/category/' + categoryId);
+    this.router.navigateByUrl("/user/category/" + categoryId);
   }
 
   deleteCategory(categoryId: string): void {
@@ -52,7 +62,7 @@ export class CategoriesListComponent {
 
     // show confirmation popup
     let result = confirm(
-      'Confirm delete category with id: ' + categoryId + ' .'
+      "Confirm delete category with id: " + categoryId + " ."
     );
     if (result) {
       this.store.dispatch(

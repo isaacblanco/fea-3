@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
-import * as PostsAction from '../../actions';
-import { PostDTO } from '../../models/post.dto';
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/app.reducers";
+import * as PostsAction from "../../actions";
+import { PostDTO } from "../../models/post.dto";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
   posts: PostDTO[];
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
     this.numLikes = 0;
     this.numDislikes = 0;
 
-    this.store.select('posts').subscribe((posts) => {
+    this.store.select("posts").subscribe((posts) => {
       this.posts = posts.posts;
       this.numLikes = 0;
       this.numDislikes = 0;
@@ -32,9 +32,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPosts();
+    this.createBarChart();
   }
 
   private loadPosts(): void {
     this.store.dispatch(PostsAction.getPosts());
   }
+
+  createBarChart() {}
 }

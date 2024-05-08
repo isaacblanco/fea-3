@@ -1,19 +1,30 @@
-<p>header works!</p>
-
-<!-- NO AUTH REQUIRED -->
-<div *ngIf="showNoAuthSection">
-  <button (click)="dashboard()">Dashboard</button>
-  <button (click)="home()">Home</button>
-  <button (click)="login()">Login</button>
-  <button (click)="register()">Register</button>
-</div>
+<mat-toolbar *ngIf="showNoAuthSection">
+  <span>PEC 3</span>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-flat-button (click)="dashboard()">Dashboard</button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-flat-button (click)="home()">Home</button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-flat-button (click)="login()">Login</button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-flat-button (click)="register()">Register</button>
+</mat-toolbar>
 
 <!-- AUTH REQUIRED -->
-<div *ngIf="showAuthSection">
-  <button (click)="dashboard()">Dashboard</button>
-  <button (click)="home()">Home</button>
-  <button (click)="adminPosts()">Admin posts</button>
-  <button (click)="adminCategories()">Admin categories</button>
-  <button (click)="profile()">Profile</button>
-  <button (click)="logout()">Logout</button>
-</div>
+<mat-toolbar *ngIf="showAuthSection">
+  <span>PEC 3</span>
+  <span class="example-spacer"></span>
+  <button mat-stroked-button (click)="dashboard()">Dashboard</button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-stroked-button (click)="home()">Home</button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-stroked-button (click)="adminPosts()">Admin posts</button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-stroked-button (click)="adminCategories()">
+    Admin categories
+  </button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-stroked-button (click)="profile()">Profile</button>
+  <span class="example-spacer">&nbsp;</span>
+  <button mat-stroked-button (click)="logout()">Logout</button>
+</mat-toolbar>

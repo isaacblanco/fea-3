@@ -29,6 +29,23 @@
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+.login {
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+.login section {
+  text-align: center;
+}
+
+.login section:last-child {
+  margin-bottom: 24px;
+}
+
+.login form {
+  padding: 24px 0;
+}
+
 @-webkit-keyframes fadein {
   from {
     bottom: 0;

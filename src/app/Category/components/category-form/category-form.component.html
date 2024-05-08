@@ -1,4 +1,4 @@
-<div style="margin-left: auto; margin-right: auto">
+<div style="margin: 0 auto">
   <p id="categoryFeedback"></p>
 </div>
 <div>
@@ -8,9 +8,9 @@
     [formGroup]="categoryForm"
     (ngSubmit)="saveCategory()"
   >
-    <div>
-      <label for="title">Title:</label>
-      <input type="text" [formControl]="title" />
+    <mat-form-field appearance="fill">
+      <mat-label for="title">Title:</mat-label>
+      <input matInput type="text" [formControl]="title" />
 
       <div *ngIf="title.errors">
         <div
@@ -24,11 +24,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </mat-form-field>
 
-    <div>
-      <label for="description">Description:</label>
-      <input type="text" [formControl]="description" />
+    <mat-form-field appearance="fill">
+      <mat-label for="description">Description:</mat-label>
+      <input matInput type="text" [formControl]="description" />
 
       <div *ngIf="description.errors">
         <div
@@ -42,26 +42,28 @@
           </div>
         </div>
       </div>
-    </div>
+    </mat-form-field>
 
-    <div>
-      <label for="description">Css color:</label>
-      <input type="text" [formControl]="css_color" />
+    <mat-form-field appearance="fill">
+      <mat-label for="description">Css color:</mat-label>
+      <input matInput type="text" [formControl]="css_color" />
 
       <div *ngIf="css_color.errors">
-        <div
+        <!--<div
           *ngIf="css_color.errors && isValidForm != null && !isValidForm"
           [ngClass]="'error'"
+        >//-->
+        <mat-error *ngIf="css_color.errors.required"
+          >Css color is required</mat-error
         >
-          <div *ngIf="css_color.errors.required">Css color is required</div>
 
-          <div *ngIf="css_color.errors.maxlength">
-            Css color can be max 7 characters long.
-          </div>
-        </div>
+        <mat-error *ngIf="css_color.errors.maxlength">
+          Css color can be max 7 characters long.
+        </mat-error>
       </div>
-    </div>
+      <!--</div>-->
+    </mat-form-field>
 
-    <button type="submit">SAVE</button>
+    <button mat-raised-button color="primary" type="submit">SAVE</button>
   </form>
 </div>

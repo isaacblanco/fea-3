@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  border: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: rgba(0, 12, 21, 0.1);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  color: #414150;
+  text-align: center;
+}
+
+mat-form-field {
+  flex: 1;
+}

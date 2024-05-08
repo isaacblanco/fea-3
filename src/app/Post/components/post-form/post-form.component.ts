@@ -1,23 +1,23 @@
-import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { formatDate } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
-import { CategoryDTO } from 'src/app/Category/models/category.dto';
-import * as CategoriesAction from '../../../Category/actions';
-import * as PostsAction from '../../actions';
-import { PostDTO } from '../../models/post.dto';
+} from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { CategoryDTO } from "src/app/Category/models/category.dto";
+import { AppState } from "src/app/app.reducers";
+import * as CategoriesAction from "../../../Category/actions";
+import * as PostsAction from "../../actions";
+import { PostDTO } from "../../models/post.dto";
 
 @Component({
-  selector: 'app-post-form',
-  templateUrl: './post-form.component.html',
-  styleUrls: ['./post-form.component.scss'],
+  selector: "app-post-form",
+  templateUrl: "./post-form.component.html",
+  styleUrls: ["./post-form.component.scss"],
 })
 export class PostFormComponent implements OnInit {
   post: PostDTO;
@@ -43,11 +43,11 @@ export class PostFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private store: Store<AppState>
   ) {
-    this.userId = '';
+    this.userId = "";
 
     this.isValidForm = null;
-    this.postId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.post = new PostDTO('', '', 0, 0, new Date());
+    this.postId = this.activatedRoute.snapshot.paramMap.get("id");
+    this.post = new PostDTO("", "", 0, 0, new Date());
     this.isUpdateMode = false;
 
     this.title = new FormControl(this.post.title, [
@@ -61,7 +61,7 @@ export class PostFormComponent implements OnInit {
     ]);
 
     this.publication_date = new FormControl(
-      formatDate(this.post.publication_date, 'yyyy-MM-dd', 'en'),
+      formatDate(this.post.publication_date, "yyyy-MM-dd", "en"),
       [Validators.required]
     );
 
@@ -79,17 +79,17 @@ export class PostFormComponent implements OnInit {
       num_dislikes: this.num_dislikes,
     });
 
-    this.store.select('auth').subscribe((auth) => {
+    this.store.select("auth").subscribe((auth) => {
       if (auth.credentials.user_id) {
         this.userId = auth.credentials.user_id;
       }
     });
 
-    this.store.select('categories').subscribe((categories) => {
+    this.store.select("categories").subscribe((categories) => {
       this.categoriesList = categories.categories;
     });
 
-    this.store.select('posts').subscribe((posts) => {
+    this.store.select("posts").subscribe((posts) => {
       this.post = posts.post;
 
       this.title.setValue(this.post.title);
@@ -97,7 +97,7 @@ export class PostFormComponent implements OnInit {
       this.description.setValue(this.post.description);
 
       this.publication_date.setValue(
-        formatDate(this.post.publication_date, 'yyyy-MM-dd', 'en')
+        formatDate(this.post.publication_date, "yyyy-MM-dd", "en")
       );
 
       if (this.post.categories) {
@@ -140,7 +140,7 @@ export class PostFormComponent implements OnInit {
     } else {
       this.postForm.reset();
       this.publication_date.setValue(
-        formatDate(this.post.publication_date, 'yyyy-MM-dd', 'en')
+        formatDate(this.post.publication_date, "yyyy-MM-dd", "en")
       );
     }
   }
@@ -163,7 +163,8 @@ export class PostFormComponent implements OnInit {
   private createPost(): void {
     if (this.userId) {
       this.post.userId = this.userId;
-
+      this.post.num_likes = 0;
+      this.post.num_dislikes = 0;
       this.store.dispatch(PostsAction.createPost({ post: this.post }));
     }
   }
