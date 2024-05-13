@@ -7,6 +7,7 @@ Y lanzar: **npm run start:dev**
 Recordatorio para mí:
 User: ibp@mail.com
 Pass: demodemo
+Repositorio gitHub: https://github.com/isaacblanco/fea-3
 
 Al tratar de iniciar todo, y como siempre sale la mierda del CORS al acceder al servicio de posts
 
